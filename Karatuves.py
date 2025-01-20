@@ -10,7 +10,7 @@ main.pack()
 
 #start
 
-logo = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png')
+logo = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
 main.create_image(100, 20, image=logo)
 
 
