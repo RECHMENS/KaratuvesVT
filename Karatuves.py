@@ -10,11 +10,12 @@ main.pack()
 
 #start
 #bilde
-logo = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
+logo = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
 main.create_image(600, 450, image=logo)
 #start poga 
-START_POGA = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\START POGA.png')
+START_POGA = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\START POGA.png')
 main.create_image(600, 750, image=START_POGA)
+main.create_text(600,750, text = "START", font = ("MingLiU_HKSCS-ExtB", 40,))
 
 
 
