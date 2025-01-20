@@ -1,1 +1,59 @@
+from tkinter import *
+
+
+logs = Tk()
+logs.title("Karatuves Starts")
+logs.geometry("1200x900")
+logs.config(bg="#E6E6E6")
+
+main = Canvas(logs, width=1200, height=650, bg="#E6E6E6",highlightthickness=0)
+main.pack()
+
+
+
+#start
+#start virsraksts
+main.create_text(600,200, text = "Karatuves", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
+
+#bilde
+logo = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
+main.create_image(600, 450, image=logo)
+
+
+
+def Start_pogas_funkcija():
+    newWindow = Toplevel(logs)
+ 
+    
+    newWindow.title("Spēle")
+ 
+    
+    newWindow.geometry("1200x900")
+ 
+    
+    Label(newWindow, 
+          text ="This is a new window").pack()
+
+
+# Image for the start button
+Start_pogas_funkcija = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\START POGA.png')  # Adjust path accordingly
+
+# Create the "Start" button with the image
+start_button = Button(logs, image=Start_pogas_funkcija, command=Start_pogas_funkcija, relief="raised", bd=0)
+start_button.place(x=450, y=700, width=300, height=100)  # Adjust button position and size
+
+
+
+#start poga 
+#START_POGA = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\START POGA.png')
+#main.create_image(600, 750, image=START_POGA)
+#main.create_text(600,750, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
+
+
+
+
+
+
+
+logs.mainloop()
 
