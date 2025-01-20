@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import PhotoImage
 
+vārdi = ["Orange","Apple","Banana"]
+
 height = 400
 width = 400
 
