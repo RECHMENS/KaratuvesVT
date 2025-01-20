@@ -9,9 +9,13 @@ main = Canvas(logs, width=1200, height=900, bg="#E6E6E6")
 main.pack()
 
 #start
+#bilde
+logo = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
+main.create_image(600, 450, image=logo)
+#start poga 
+START_POGA = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\START POGA.png')
+main.create_image(600, 750, image=START_POGA)
 
-logo = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
-main.create_image(100, 20, image=logo)
 
 
 logs.mainloop()
