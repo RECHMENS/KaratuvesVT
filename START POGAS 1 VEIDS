@@ -1,0 +1,4 @@
+#start poga 
+#START_POGA = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\START POGA.png')
+#main.create_image(600, 750, image=START_POGA)
+#main.create_text(600,750, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
