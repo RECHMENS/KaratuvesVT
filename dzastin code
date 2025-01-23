@@ -6,29 +6,35 @@ logs = Tk()
 logs.title("test")
 logs.geometry("1200x900")
 logs.config(bg="#E6E6E6")
-main = Canvas(logs, width=1200, height=900, bg="#E6E6E6", highlightthickness= 0)
-main.pack()
 
-#start
+#Images
+
+karatuves = PhotoImage(file='C:\\Users\\User\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
+START_POGA = PhotoImage(file='C:\\Users\\User\\Documents\\26\\START POGA.png')
+
+def main_screen():
+ main = Canvas(logs, width=1200, height=900, bg="#E6E6E6", highlightthickness= 0)
+ main.pack()
+
 
 #start virsraksts
 
-main.create_text(600,200, text = "Karatuves", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
+ main.create_text(600,200, text = "Karatuves", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
 
-#bilde
+#bilde(karatuves)
 
-pakaries = PhotoImage(file='C:\\Users\\User\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
-main.create_image(600, 450, image=pakaries)
+ main.create_image(600, 450, image=karatuves)
 
-#start poga 
+#bilde(start)
 
-START_POGA = PhotoImage(file='C:\\Users\\User\\Documents\\26\\START POGA.png')
-main.create_image(600, 750, image=START_POGA)
-main.create_text(600,750, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
+ main.create_image(600, 750, image=START_POGA)
 
-start = Canvas (logs, width = 435, height = 137,bg="#D7D7D7", highlightthickness= 0)
-start.place(x = 380, y = 685)
+#start_poga
 
-start.create_text(220, 70, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
+ start = Canvas (logs, width = 435, height = 137,bg="#D7D7D7", highlightthickness= 0)
+ start.place(x = 380, y = 685)
 
+ start.create_text(220, 70, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
+
+main_screen()
 logs.mainloop()
