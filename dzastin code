@@ -17,16 +17,18 @@ main.create_text(600,200, text = "Karatuves", font = ("MingLiU_HKSCS-ExtB", 60,"
 
 #bilde
 
-pakaries = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
+pakaries = PhotoImage(file='C:\\Users\\User\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
 main.create_image(600, 450, image=pakaries)
 
 #start poga 
 
-START_POGA = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\START POGA.png')
+START_POGA = PhotoImage(file='C:\\Users\\User\\Documents\\26\\START POGA.png')
 main.create_image(600, 750, image=START_POGA)
 main.create_text(600,750, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
 
-start = Canvas (logs, width = 200, height = 100,bg="red")
-start.place(x = 600, y = 750)
+start = Canvas (logs, width = 435, height = 137,bg="#D7D7D7", highlightthickness= 0)
+start.place(x = 380, y = 685)
+
+start.create_text(220, 70, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
 
 logs.mainloop()
