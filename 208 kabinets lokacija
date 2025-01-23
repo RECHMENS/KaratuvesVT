@@ -1,1 +1,8 @@
 Fēča - 
+pakaries = PhotoImage(file="C:\\Users\\User\\Desktop\\f\\Capture.PNG") #Dzastina path S202-8 Fēlikssa path 202-04
+main.create_image(600, 450, image=pakaries)
+
+#start poga 
+
+START_POGA = PhotoImage(file="C:\\Users\\User\\Desktop\\f\\START POGA.PNG")
+main.create_image(600, 750, image=START_POGA)
