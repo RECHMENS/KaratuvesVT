@@ -1,40 +1,40 @@
 from tkinter import *
 
-
-
 logs = Tk()
 logs.title("test")
 logs.geometry("1200x900")
 logs.config(bg="#E6E6E6")
 
-#Images
-
-karatuves = PhotoImage(file='C:\\Users\\User\\Documents\\26\\Capture.png') #Dzastina path S202-8 Fēlikssa path 202-04
+# Images
+karatuves = PhotoImage(file='C:\\Users\\User\\Documents\\26\\Capture.png')
 START_POGA = PhotoImage(file='C:\\Users\\User\\Documents\\26\\START POGA.png')
 
-def main_screen():
- main = Canvas(logs, width=1200, height=900, bg="#E6E6E6", highlightthickness= 0)
- main.pack()
+class Main:
+    def main_screen(self):
+        main = Canvas(logs, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
+        main.pack()
 
+        # start virsraksts
+        main.create_text(600, 200, text="Karatuves", font=("MingLiU_HKSCS-ExtB", 60, "bold"))
 
-#start virsraksts
+        # bilde(karatuves)
+        main.create_image(600, 450, image=karatuves)
 
- main.create_text(600,200, text = "Karatuves", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
+        # bilde(start)
+        main.create_image(600, 750, image=START_POGA)
 
-#bilde(karatuves)
+        # start_poga
+        self.Start_poga()
 
- main.create_image(600, 450, image=karatuves)
+    def Start_poga(self):
+        start_button = Button(logs, text="START", font=("MingLiU_HKSCS-ExtB", 60, "bold"), bg="#D7D7D7", activebackground="#D7D7D7", relief="flat", width=10, height=1, command=self.start_action)
 
-#bilde(start)
+        start_button.place(x=385, y=685)
 
- main.create_image(600, 750, image=START_POGA)
+    def start_action(self):
+        print("Start button clicked!")
 
-#start_poga
+main_app = Main()
+main_app.main_screen()
 
- start = Canvas (logs, width = 435, height = 137,bg="#D7D7D7", highlightthickness= 0)
- start.place(x = 380, y = 685)
-
- start.create_text(220, 70, text = "START", font = ("MingLiU_HKSCS-ExtB", 60,"bold"))
-
-main_screen()
 logs.mainloop()
