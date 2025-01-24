@@ -5,13 +5,16 @@ logs.title("test")
 logs.geometry("1200x900")
 logs.config(bg="#E6E6E6")
 
+start=Frame(logs,bg="#E6E6E6")
+start.pack()
+
 # Images
 karatuves = PhotoImage(file='C:\\Users\\User\\Documents\\26\\Capture.png')
 START_POGA = PhotoImage(file='C:\\Users\\User\\Documents\\26\\START POGA.png')
 
 class Main:
     def main_screen(self):
-        main = Canvas(logs, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
+        main = Canvas(start, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
         main.pack()
 
         # start virsraksts
@@ -27,12 +30,12 @@ class Main:
         self.Start_poga()
 
     def Start_poga(self):
-        start_button = Button(logs, text="START", font=("MingLiU_HKSCS-ExtB", 60, "bold"), bg="#D7D7D7", activebackground="#D7D7D7", relief="flat", width=10, height=1, command=self.start_action)
+        start_button = Button(start, text="START", font=("MingLiU_HKSCS-ExtB", 60, "bold"), bg="#D7D7D7", activebackground="#D7D7D7", relief="flat", width=10, height=1, command=self.start_action)
 
         start_button.place(x=385, y=685)
 
     def start_action(self):
-        print("Start button clicked!")
+        start.destroy()
 
 main_app = Main()
 main_app.main_screen()
