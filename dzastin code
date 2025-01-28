@@ -1,3 +1,4 @@
+
 from tkinter import *
 
 logs = Tk()
@@ -9,8 +10,8 @@ start=Frame(logs,bg="#E6E6E6")
 start.pack()
 
 # Images
-karatuves = PhotoImage(file='C:\\Users\\User\\Documents\\26\\Capture.png')
-START_POGA = PhotoImage(file='C:\\Users\\User\\Documents\\26\\START POGA.png')
+karatuves = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png')
+START_POGA = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\START POGA.png')
 
 class Main:
     def main_screen(self):
@@ -39,5 +40,24 @@ class Main:
 
 main_app = Main()
 main_app.main_screen()
+
+#SPĒLE
+
+BURTU_SH = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Burti.png')
+
+
+game = Frame(logs, bg="#E6E6E6")
+game.pack()
+
+class Spele():
+
+    def speles_screen(self):
+        speles_sh = Canvas(game, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
+        speles_sh.pack()
+
+        speles_sh.create_image(600, 650, image=BURTU_SH)
+
+spele_app = Spele()
+spele_app.speles_screen()
 
 logs.mainloop()
