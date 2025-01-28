@@ -1,2 +1,79 @@
 karatuves = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\Capture.png')
 START_POGA = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\START POGA.png')
+from random import randint
+from tkinter import *
+
+logs = Tk()
+logs.title("test")
+logs.geometry("1200x900")
+logs.config(bg="#E6E6E6")
+
+start=Frame(logs,bg="#E6E6E6")
+start.pack()
+
+# Images
+karatuves = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\Capture.png')
+START_POGA = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\START POGA.png')
+class Main:
+    def main_screen(self):
+        main = Canvas(start, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
+        main.pack()
+
+        # start virsraksts
+        main.create_text(600, 200, text="Karatuves", font=("MingLiU_HKSCS-ExtB", 60, "bold"))
+
+        # bilde(karatuves)
+        main.create_image(600, 450, image=karatuves)
+
+        # bilde(start)
+        main.create_image(600, 750, image=START_POGA)
+
+        # start_poga
+        self.Start_poga()
+
+    def Start_poga(self):
+        start_button = Button(start, text="START", font=("MingLiU_HKSCS-ExtB", 60, "bold"), bg="#D7D7D7", activebackground="#D7D7D7", relief="flat", width=10, height=1, command=self.start_action)
+
+        start_button.place(x=385, y=685)
+
+    def start_action(self):
+        start.destroy()
+
+main_app = Main()
+main_app.main_screen()
+
+#SPĒLE
+
+BURTU_SH = PhotoImage(file='C:\\Users\\202-04\\Documents\\26\\Burti.png')
+
+
+game = Frame(logs, bg="#E6E6E6")
+game.pack()
+
+Vārdi = ["cat","rat","egg","ice","jar","bat","car","frog","rice","kiwi","mice","cake","salt","sugar","apple","flame","plot","drink",
+         "climb","drift","drive","jewel","honey","quick","laugh","bridge","bucket","forest"]
+tagadējais_vārds = Vārdi[randint(0, len(Vārdi)-1)]
+class Spele():
+
+    def speles_screen(self):
+        speles_sh = Canvas(game, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
+        speles_sh.pack()
+
+        speles_sh.create_image(600, 650, image=BURTU_SH)
+        
+    def burtu_poga_A(self):
+        BURTS_A = 'A'
+        print(BURTS_A)
+    def burtu_poga_B(self):
+        BURTS_B = 'B'
+        print(BURTS_B)
+    
+        
+        
+        
+        
+
+spele_app = Spele()
+spele_app.speles_screen()
+
+logs.mainloop()
