@@ -13,7 +13,7 @@ start.pack()
 karatuves = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png')
 START_POGA = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\START POGA.png')
 
-class Main:
+class Start:
     def main_screen(self):
         main = Canvas(start, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
         main.pack()
@@ -37,11 +37,40 @@ class Main:
 
     def start_action(self):
         start.destroy()
+#POGAAAAAAAM
+        spele_app.poga_A()
+        spele_app.poga_B()
+        spele_app.poga_C()
+        spele_app.poga_D()
+        spele_app.poga_E()
+        spele_app.poga_F()
+        spele_app.poga_G()
+        spele_app.poga_H()
+        spele_app.poga_I()
+        spele_app.poga_J()
+        spele_app.poga_K()
+        spele_app.poga_L()
+        spele_app.poga_M()
+        spele_app.poga_N()
+        spele_app.poga_O()
+        spele_app.poga_P()
+        spele_app.poga_Q()
+        spele_app.poga_R()
+        spele_app.poga_S()
+        spele_app.poga_T()
+        spele_app.poga_U()
+        spele_app.poga_V()
+        spele_app.poga_W()
+        spele_app.poga_X()
+        spele_app.poga_Y()
+        spele_app.poga_Z()
 
-main_app = Main()
-main_app.main_screen()
+start_app = Start()
+start_app.main_screen()
 
 #SPĒLE
+
+
 
 BURTU_SH = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Burti.png')
 
@@ -56,6 +85,43 @@ class Spele():
         speles_sh.pack()
 
         speles_sh.create_image(600, 650, image=BURTU_SH)
+
+#BURTU POGAS AAAAAAAAAAAA
+
+    def poga_A(self):
+        poga_A = Button(game, text="A", fg="#858585", font=("Kozuka Gothic Pr6N B", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_A_func)
+        poga_A.place(x=180, y=530)
+
+    def poga_A_func(self):
+        print("A")
+
+    def poga_B(self):
+        poga_B = Button(game, text="B", fg="#858585", font=("Kozuka Gothic Pr6N B", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_B_func)
+        poga_B.place(x=269, y=530)
+
+    def poga_B_func(self):
+        print("B")
+
+    def poga_C(self):
+        poga_C = Button(game, text="C", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_C_func)
+        poga_C.place(x=357, y=530)
+
+    def poga_C_func(self):
+        print("C")
+
+    def poga_D(self):
+        poga_D = Button(game, text="D", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_D_func)
+        poga_D.place(x=445, y=530)
+
+    def poga_D_func(self):
+        print("D")
+
+    def poga_E(self):
+        poga_E = Button(game, text="E", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_E_func)
+        poga_E.place(x=533, y=530)
+
+    def poga_E_func(self):
+        print("E")  
 
 spele_app = Spele()
 spele_app.speles_screen()
