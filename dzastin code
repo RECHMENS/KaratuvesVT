@@ -10,8 +10,8 @@ start=Frame(logs,bg="#E6E6E6")
 start.pack()
 
 # Images
-karatuves = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Capture.png')
-START_POGA = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\START POGA.png')
+karatuves = PhotoImage(file='C:\\Users\\PC\\Documents\\26\\Capture.png')
+START_POGA = PhotoImage(file='C:\\Users\\PC\\Documents\\26\\START POGA.png')
 
 class Start:
     def main_screen(self):
@@ -72,13 +72,13 @@ start_app.main_screen()
 
 
 
-BURTU_SH = PhotoImage(file='C:\\Users\\S202-8\\Documents\\26\\Burti.png')
+BURTU_SH = PhotoImage(file='C:\\Users\\PC\\Documents\\26\\Burti.png')
 
 
 game = Frame(logs, bg="#E6E6E6")
 game.pack()
 
-class Spele():
+class Spele_SCREEN():
 
     def speles_screen(self):
         speles_sh = Canvas(game, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
@@ -121,9 +121,157 @@ class Spele():
         poga_E.place(x=533, y=530)
 
     def poga_E_func(self):
-        print("E")  
+        print("E")
 
-spele_app = Spele()
+    def poga_F(self):
+        poga_F = Button(game, text="F", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_F_func)
+        poga_F.place(x=622, y=530)
+
+    def poga_F_func(self):
+        print("F")
+
+    def poga_G(self):
+        poga_G = Button(game, text="G", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_G_func)
+        poga_G.place(x=710, y=530)
+
+    def poga_G_func(self):
+        print("G")
+
+    def poga_H(self):
+        poga_H = Button(game, text="H", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_H_func)
+        poga_H.place(x=798, y=530)
+
+    def poga_H_func(self):
+        print("H")
+
+    def poga_I(self):
+        poga_I = Button(game, text="I", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_I_func)
+        poga_I.place(x=886, y=530)
+
+    def poga_I_func(self):
+        print("I")
+
+    def poga_J(self):
+        poga_J = Button(game, text="J", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_J_func)
+        poga_J.place(x=886, y=530)
+
+    def poga_J_func(self):
+        print("J")
+
+    def poga_K(self):
+        poga_K = Button(game, text="K", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_K_func)
+        poga_K.place(x=974, y=530)
+
+    def poga_K_func(self):
+        print("K")
+
+    def poga_L(self):
+        poga_L = Button(game, text="L", fg="#858585", font=("Kozuka Gothic Pr6N B", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_L_func)
+        poga_L.place(x=180, y=624)
+
+    def poga_L_func(self):
+        print("L")
+
+    def poga_M(self):
+        poga_M = Button(game, text="M", fg="#858585", font=("Kozuka Gothic Pr6N B", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_M_func)
+        poga_M.place(x=269, y=624)
+
+    def poga_M_func(self):
+        print("M")
+
+    def poga_N(self):
+        poga_N = Button(game, text="N", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_N_func)
+        poga_N.place(x=357, y=624)
+
+    def poga_N_func(self):
+        print("N")
+
+    def poga_O(self):
+        poga_O = Button(game, text="O", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_O_func)
+        poga_O.place(x=445, y=624)
+
+    def poga_O_func(self):
+        print("O")
+
+    def poga_P(self):
+        poga_P = Button(game, text="P", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_P_func)
+        poga_P.place(x=533, y=624)
+
+    def poga_P_func(self):
+        print("P")
+
+    def poga_Q(self):
+        poga_Q = Button(game, text="Q", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_Q_func)
+        poga_Q.place(x=622, y=624)
+
+    def poga_Q_func(self):
+        print("Q")
+
+    def poga_R(self):
+        poga_R = Button(game, text="R", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_R_func)
+        poga_R.place(x=710, y=624)
+
+    def poga_R_func(self):
+        print("R")
+
+    def poga_S(self):
+        poga_S = Button(game, text="S", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_S_func)
+        poga_S.place(x=798, y=624)
+
+    def poga_S_func(self):
+        print("S")
+
+    def poga_T(self):
+        poga_T = Button(game, text="T", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_T_func)
+        poga_T.place(x=886, y=624)
+
+    def poga_T_func(self):
+        print("T")
+
+    def poga_U(self):
+        poga_U = Button(game, text="U", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_U_func)
+        poga_U.place(x=974, y=624)
+
+    def poga_U_func(self):
+        print("U")
+
+    def poga_V(self):
+        poga_V = Button(game, text="V", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_V_func)
+        poga_V.place(x=379, y=717)
+
+    def poga_V_func(self):
+        print("V")
+
+    def poga_W(self):
+        poga_W = Button(game, text="W", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_W_func)
+        poga_W.place(x=468, y=717)
+
+    def poga_W_func(self):
+        print("W")
+
+    def poga_X(self):
+        poga_X = Button(game, text="X", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_X_func)
+        poga_X.place(x=556, y=717)
+
+    def poga_X_func(self):
+        print("X")
+
+    def poga_Y(self):
+        poga_Y = Button(game, text="Y", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_Y_func)
+        poga_Y.place(x=644, y=717)
+
+    def poga_Y_func(self):
+        print("Y")
+
+    def poga_Z(self):
+        poga_Z = Button(game, text="Z", fg="#858585", font=("Kozuka Gothic Pr6N C", 23, "bold"), bg="#D7D7D7",activebackground="#D7D7D7", relief="flat", width=2, height=1, command=self.poga_Z_func)
+        poga_Z.place(x=732, y=717)
+
+    def poga_Z_func(self):
+        print("Z")
+
+
+spele_app = Spele_SCREEN()
 spele_app.speles_screen()
 
 logs.mainloop()
