@@ -1,0 +1,5 @@
+       self.vārdi = [
+        "apelsīns", "ābols", "citrons", "melene", "galds", "krēsls", "grāmata", "skola", "dators", "pulkstenis", 
+        "māja", "logi", "koks", "zieds", "debesis", "jūra", "mēness", "saule", "vējš", "putns", "suns", 
+        "kaķis", "zirgs", "lietus", "sniegs", "siltums", "aukstums", "gadalaiks", "brīvdiena", "vakars", "rīts",
+        "zāle", "kalns", "upe", "mežs", "daba", "ceļš", "akmens", "tilts", "mašīna", "vēstule"]  
