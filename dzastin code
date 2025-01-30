@@ -11,60 +11,84 @@ logs.config(bg="#E6E6E6")
 script_dir = os.path.dirname(os.path.abspath(__file__))
 karatuves_path = os.path.join(script_dir, "Images", "Capture.PNG")
 START_POGA_path = os.path.join(script_dir, "Images", "START POGA.PNG")
+End_i_path = os.path.join(script_dir, "Images", "Ded.PNG")
 
 # bildes
 karatuves = PhotoImage(file=karatuves_path)
 START_POGA = PhotoImage(file=START_POGA_path)
+End_i = PhotoImage(file=End_i_path)
+
+
+
 
 start = Frame(logs, bg="#E6E6E6")
 start.pack()
+
+game = Frame(logs, bg="#E6E6E6")
+
+end = Frame(logs, bg="#E6E6E6")
 
 class Start:
     def main_screen(self):
         main = Canvas(start, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
         main.pack()
-
-        # Virsraksts
-        main.create_text(600, 200, text="Karatuves", font=("MingLiU_HKSCS-ExtB", 60, "bold"))
-
-        # Logo bilde
+        main.create_text(600, 200, text="Karātuves", font=("Kozuka Gothic Pr6N B", 60, "bold"))
         main.create_image(600, 450, image=karatuves)
-
-        # Start pogas bilde
         main.create_image(600, 750, image=START_POGA)
-
-        # Start Button
         self.Start_poga()
 
     def Start_poga(self):
-        start_button = Button(start, text="START", font=("MingLiU_HKSCS-ExtB", 60, "bold"), 
-                              bg="#D7D7D7", activebackground="#D7D7D7", relief="flat", 
+        start_button = Button(start, text="START", font=("Kozuka Gothic Pr6N B", 50, "bold"),
+                              bg="#D7D7D7", activebackground="#D7D7D7", relief="flat",
                               width=10, height=1, command=self.start_action)
-
         start_button.place(x=385, y=685)
 
-    # start poga 
+# start poga 
+
     def start_action(self):
         start.pack_forget()  # liek start screenam pazust
         game.pack()  # parādīs spēles ekrānu kad start scrēnds pazudīs
-        spele_app.speles_screen()  # startē spēli kad tiek parādīts game screen
+        spele_ekrans.start_new_game()  # startē spēli kad tiek parādīts game screen
 
-start_app = Start()
-start_app.main_screen()
-# izveido jaunu frame
-game = Frame(logs, bg="#E6E6E6")
+start_ekrans = Start()
+start_ekrans.main_screen()
 
 class Spele_SCREEN:
     def __init__(self):
+
+        self.vārdi = [
+        "apelsīns", "ābols", "citrons", "melene", "galds", "krēsls", "grāmata", "skola", "dators", "pulkstenis", 
+        "māja", "logi", "koks", "zieds", "debesis", "jūra", "mēness", "saule", "vējš", "putns", "suns", 
+        "kaķis", "zirgs", "lietus", "sniegs", "siltums", "aukstums", "gadalaiks", "brīvdiena", "vakars", "rīts",
+        "zāle", "kalns", "upe", "mežs", "daba", "ceļš", "akmens", "tilts", "mašīna", "vēstule"]    # šeit iet vārrdi !
+
         self.word = ""
         self.word_letters = []
         self.displayed_letters = []
-        self.Lines = None
-        self.vārdi = ["apelsīns", "ābols", "citrons", "melene"]  # šeit iet vārrdi !
+        self.Lines = 0
+        self.word_label = 0
+        self.buttons = {}
+        self.lives = 6  # spēlētājam sākumā ir 6 dzīvības
+        self.score = 0  # punktu skaits
+        self.lives_label = 0
+        self.score_label = 0
+
+    def start_new_game(self):
+        for widget in game.winfo_children():#funkcija game.winfo_children atgriež visus apakšelementus (bērnus) !!!  
+            widget.destroy()
+        self.lives = 6
+        self.score = 0
+        self.speles_screen()
 
     def speles_screen(self):
         speles_sh = Canvas(game, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
         speles_sh.pack()
+        
+        self.lives_label = Label(game, text=f"Dzīvības: {self.lives}", font=("Kozuka Gothic Pr6N B", 20, "bold"), bg="#E6E6E6")
+        self.lives_label.place(x=50, y=10)
+        
+        self.score_label = Label(game, text=f"Punkti: {self.score}", font=("Kozuka Gothic Pr6N B", 20, "bold"), bg="#E6E6E6")
+        self.score_label.place(x=50, y=40)
         
         self.līnījas()
         self.create_buttons()
@@ -74,53 +98,78 @@ class Spele_SCREEN:
         self.word_letters = list(self.word)
         self.displayed_letters = ["_" for _ in self.word]
 
-        print(f"Vārds: {self.word}")  # konsolē parādās vārds kad spēle gatava komentēt !!!! 
-
+        print(f"Vārds: {self.word}")  # konsolē parādās vārds kad spēle gatava komentēt !!!!
+        
         word_width = len(self.word) * 45  # apmēram burtu izmers pec fonta
-
-        # Izreikina x lai centrētu vārdu!!!!!!
         canvas_width = 1200
         centered_x = (canvas_width - word_width) // 2
 
-        self.Lines = Label(game, text=" ".join(self.displayed_letters), font=("Arial", 45, "bold"), fg="black", bg="#E6E6E6")
-        self.Lines.pack(pady=10)
+# Centrē vārdu!
 
-        #Centrē burtu!
-        self.word_label = Label(game, text=" ".join(self.displayed_letters), font=("Arial", 45, "bold"), fg="black", bg="#E6E6E6")
-        self.word_label.place(x=centered_x, y=300) 
-
+        self.word_label = Label(game, text=" ".join(self.displayed_letters), font=("Kozuka Gothic Pr6N B", 45, "bold"), fg="black", bg="#E6E6E6")
+        self.word_label.place(x=centered_x, y=300)
 
     def update_display(self, letter):  # katru burtu kas tiks uzminēts tiks atjaunots ekrāns
         for i, char in enumerate(self.word_letters):
             if char == letter:
                 self.displayed_letters[i] = letter
-        
-        # Update the word label
         self.word_label.config(text=" ".join(self.displayed_letters))
+        if "_" not in self.displayed_letters:
+            self.score += 1
+            self.score_label.config(text=f"Punkti: {self.score}")
+            self.līnījas()
+            self.create_buttons()
 
-    def create_buttons(self):
-        Alfabēts = "AĀBCČDEĒFGĢHIĪJKĶLĻMNŅOPRSŠTUŪVZŽ"  # alfabēetsssssssss
-        # pogu pozīcījas 
+    def create_buttons(self):  # izveido pogas priekš burtiem
+        Alfabēts = "AĀBCČDEĒFGĢHIĪJKĶLĻMNŅOPRSŠTUŪVZŽ"
         x_positions = [180, 269, 357, 445, 533, 622, 710, 798, 886, 974]
         y_positions = [430, 524, 617, 711]
-
         self.buttons = {}
-
-        # sataisa pogas un sarindo tās
+        
         for index, burts in enumerate(Alfabēts):
             row = index // 10  
             col = index % 10  
-
-            Alfabēta_pogas = Button(game, text=burts, fg="#858585", font=("Kozuka Gothic Pr6N B", 23, "bold"), 
-                         bg="#D7D7D7", activebackground="#D7D7D7", relief="flat", width=2, height=1, 
-                         command=lambda l=burts: self.Burtu_Minēšana(l))
+            Alfabēta_pogas = Button(game, text=burts, fg="#858585", font=("Kozuka Gothic Pr6N B", 23, "bold"),
+                                    bg="#D7D7D7", activebackground="#D7D7D7", relief="flat", width=2, height=1,
+                                    command=lambda l=burts: self.Burtu_Minēšana(l))
             Alfabēta_pogas.place(x=x_positions[col], y=y_positions[row])
             self.buttons[burts] = Alfabēta_pogas
 
     def Burtu_Minēšana(self, burts):
         if burts.lower() in self.word_letters:
             self.update_display(burts.lower())
+        else:
+            self.lives -= 1
+            self.lives_label.config(text=f"Dzīvības: {self.lives}")
+            if self.lives == 0:
+                game.pack_forget()
+                end.pack()
 
-spele_app = Spele_SCREEN()
+spele_ekrans = Spele_SCREEN()
+
+class Beigas(Spele_SCREEN):
+
+    def __init__(self):
+        self.beigass = Canvas(end, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
+        self.beigass.pack()
+
+        self.beigass.create_image(590, 680, image=End_i)
+
+#RESTART POGA!!!
+
+        restart = Button(end, text="RESTART", font=("Kozuka Gothic Pr6N B", 50, "bold"),
+                         bg="red", activebackground="red", relief="flat",
+                         width=10, height=1, command=self.restart_game)
+        restart.place(x=385, y=400)
+
+    def restart_game(self):
+        end.pack_forget()
+        game.pack()
+        spele_ekrans.start_new_game()
+
+end_ekrans = Beigas()
+
+
+
 
 logs.mainloop()
