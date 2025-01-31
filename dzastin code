@@ -83,13 +83,15 @@ class Spele_SCREEN:
     def speles_screen(self):
         speles_sh = Canvas(game, width=1200, height=900, bg="#E6E6E6", highlightthickness=0)
         speles_sh.pack()
-        
+
+        speles_sh.create_line(0, 280, 1200, 280, fill="#ADADAD", width=7)
+
         self.lives_label = Label(game, text=f"Dzīvības: {self.lives}", font=("Kozuka Gothic Pr6N B", 20, "bold"), bg="#E6E6E6")
         self.lives_label.place(x=50, y=10)
         
         self.score_label = Label(game, text=f"Punkti: {self.score}", font=("Kozuka Gothic Pr6N B", 20, "bold"), bg="#E6E6E6")
         self.score_label.place(x=50, y=40)
-        
+
         self.līnījas()
         self.create_buttons()
 
@@ -103,6 +105,12 @@ class Spele_SCREEN:
         word_width = len(self.word) * 45  # apmēram burtu izmers pec fonta
         canvas_width = 1200
         centered_x = (canvas_width - word_width) // 2
+
+#notīra iepriekšējo vārdu
+
+        if hasattr(self, 'word_label') and self.word_label: #chatins palidzeja......
+            self.word_label.destroy()
+
 
 # Centrē vārdu!
 
@@ -119,6 +127,8 @@ class Spele_SCREEN:
             self.score_label.config(text=f"Punkti: {self.score}")
             self.līnījas()
             self.create_buttons()
+            self.buttons(fg = "black", bg = "#D7D7D7")
+
 
     def create_buttons(self):  # izveido pogas priekš burtiem
         Alfabēts = "AĀBCČDEĒFGĢHIĪJKĶLĻMNŅOPRSŠTUŪVZŽ"
@@ -138,9 +148,11 @@ class Spele_SCREEN:
     def Burtu_Minēšana(self, burts):
         if burts.lower() in self.word_letters:
             self.update_display(burts.lower())
+            self.buttons[burts].config(fg="#289C2C",bg = "#33BB37")
         else:
             self.lives -= 1
             self.lives_label.config(text=f"Dzīvības: {self.lives}")
+            self.buttons[burts].config(fg="#C53232",bg = "#E23D3D")
             if self.lives == 0:
                 game.pack_forget()
                 end.pack()
@@ -158,7 +170,7 @@ class Beigas(Spele_SCREEN):
 #RESTART POGA!!!
 
         restart = Button(end, text="RESTART", font=("Kozuka Gothic Pr6N B", 50, "bold"),
-                         bg="red", activebackground="red", relief="flat",
+                         bg="#E23D3D", activebackground="#E23D3D", relief="flat",
                          width=10, height=1, command=self.restart_game)
         restart.place(x=385, y=400)
 
