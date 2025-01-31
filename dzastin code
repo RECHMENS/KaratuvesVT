@@ -181,7 +181,4 @@ class Beigas(Spele_SCREEN):
 
 end_ekrans = Beigas()
 
-
-
-
 logs.mainloop()
