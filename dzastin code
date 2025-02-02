@@ -12,11 +12,22 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 karatuves_path = os.path.join(script_dir, "Images", "Capture.PNG")
 START_POGA_path = os.path.join(script_dir, "Images", "START POGA.PNG")
 End_i_path = os.path.join(script_dir, "Images", "Ded.PNG")
+Karatuves_1_path = os.path.join(script_dir,"Images", "K1.PNG")
+Karatuves_2_path = os.path.join(script_dir,"Images", "K2.PNG")
+Karatuves_3_path = os.path.join(script_dir,"Images", "K3.PNG")
+Karatuves_4_path = os.path.join(script_dir,"Images", "K4.PNG")
+Karatuves_5_path = os.path.join(script_dir,"Images", "K5.PNG")
 
 # bildes
 karatuves = PhotoImage(file=karatuves_path)
 START_POGA = PhotoImage(file=START_POGA_path)
 End_i = PhotoImage(file=End_i_path)
+K1 = PhotoImage(file=Karatuves_1_path)
+K2 = PhotoImage(file=Karatuves_2_path)
+K3 = PhotoImage(file=Karatuves_3_path)
+K4 = PhotoImage(file=Karatuves_4_path)
+K5 = PhotoImage(file=Karatuves_5_path)
+
 
 
 
@@ -68,15 +79,15 @@ class Spele_SCREEN:
         self.Lines = 0
         self.word_label = 0
         self.buttons = {}
-        self.lives = 6  # spēlētājam sākumā ir 6 dzīvības
-        self.score = 0  # punktu skaits
+        self.lives = 5  
+        self.score = 0  
         self.lives_label = 0
         self.score_label = 0
 
     def start_new_game(self):
         for widget in game.winfo_children():#funkcija game.winfo_children atgriež visus apakšelementus (bērnus) !!!  
             widget.destroy()
-        self.lives = 6
+        self.lives = 5
         self.score = 0
         self.speles_screen()
 
@@ -117,7 +128,7 @@ class Spele_SCREEN:
         self.word_label = Label(game, text=" ".join(self.displayed_letters), font=("Kozuka Gothic Pr6N B", 45, "bold"), fg="black", bg="#E6E6E6")
         self.word_label.place(x=centered_x, y=300)
 
-    def update_display(self, letter):  # katru burtu kas tiks uzminēts tiks atjaunots ekrāns
+    def update_display(self, letter):  #ar katru vardu kas tiks uzminēts tiks atjaunots ekrāns
         for i, char in enumerate(self.word_letters):
             if char == letter:
                 self.displayed_letters[i] = letter
@@ -153,9 +164,51 @@ class Spele_SCREEN:
             self.lives -= 1
             self.lives_label.config(text=f"Dzīvības: {self.lives}")
             self.buttons[burts].config(fg="#C53232",bg = "#E23D3D")
+
+            if self.lives <5:
+                self.Karatuves1()
+
+            if self.lives <4:
+                self.Karatuves2()
+
+            if self.lives <3:
+                self.Karatuves3()
+
+            if self.lives <2:
+                self.Karatuves4()
+
+            if self.lives <1:
+                self.Karatuves5()
+
             if self.lives == 0:
-                game.pack_forget()
-                end.pack()
+                logs.after(1000, self.ekrana_maina)
+
+    def ekrana_maina(self):
+        game.pack_forget()
+        end.pack()
+
+#Karatuves visi phase
+
+    def Karatuves1(self):
+        karatuves_lauks = Canvas (game, width=300, height=276, bg="#E6E6E6", highlightthickness=0)
+        karatuves_lauks.create_image(150, 140, image=K1)
+        karatuves_lauks.place(x=456, y=1)
+    def Karatuves2(self):
+        karatuves_lauks = Canvas (game, width=300, height=276, bg="#E6E6E6", highlightthickness=0)
+        karatuves_lauks.create_image(150, 140, image=K2)
+        karatuves_lauks.place(x=456, y=1)
+    def Karatuves3(self):
+        karatuves_lauks = Canvas (game, width=300, height=276, bg="#E6E6E6", highlightthickness=0)
+        karatuves_lauks.create_image(150, 140, image=K3)
+        karatuves_lauks.place(x=456, y=1)
+    def Karatuves4(self):
+        karatuves_lauks = Canvas (game, width=300, height=276, bg="#E6E6E6", highlightthickness=0)
+        karatuves_lauks.create_image(150, 140, image=K4)
+        karatuves_lauks.place(x=456, y=1)
+    def Karatuves5(self):
+        karatuves_lauks = Canvas (game, width=300, height=276, bg="#E6E6E6", highlightthickness=0)
+        karatuves_lauks.create_image(150, 140, image=K5)
+        karatuves_lauks.place(x=456, y=1)
 
 spele_ekrans = Spele_SCREEN()
 
